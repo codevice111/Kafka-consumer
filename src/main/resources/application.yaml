@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: kafka-consumer
+  # Kafka consumer configuration
+  kafka:
+    topic: 'test-topic'
+    consumer:
+      # List of Kafka broker addresses
+      bootstrap-servers: localhost:9092
+      # Consumer group ID
+      group-id: group-id
+      # Offset reset policy
+      auto-offset-reset: earliest
+      # Key deserializer class
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # Value deserializer class
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # Enable auto commit of offsets
+      enable-auto-commit: true
+    #      # Maximum number of records to fetch in a single poll
+    #      max-poll-records: 1
+    #      # Maximum interval between polls
+    #      max-poll-interval-ms: 300000
+    #      # Session timeout for consumer group
+    #      session-timeout-ms: 10000
+    #      # Heartbeat interval for consumer group
+    #      heartbeat-interval-ms: 3000
+    #      # Interval for auto committing offsets
+    #      auto-commit-interval-ms: 1000
+    #      # Isolation level for reading messages
+    #      isolation-level: read_committed
+server:
+    port: 8081
